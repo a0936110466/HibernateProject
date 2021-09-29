@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    
+    
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.password">password</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://MSI\\SQLEXPRESS:1433;databaseName=Hibernate</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+    	
+    	<property name="hibernate.show_sql">true</property>
+    	<property name="hibernate.format_sql">true</property>
+    	
+    	
+    	<property name="hibernate.current_session_context_class">thread</property>
+    	
+    	
+    	<mapping resource="tw/edenHsieh/model/HouseBean.hbm.xml" />
+    	<mapping class="tw.edenHsieh.model.Department"/>
+    	
+    	<!--一對一 -->
+    	<mapping class="tw.edenHsieh.model.Book"/>
+		<mapping class="tw.edenHsieh.model.BookDetail"/>
+		
+		<!--多對一 -->
+		<mapping class="tw.edenHsieh.model.Stock"/>
+		<mapping class="tw.edenHsieh.model.StockTransaction"/>
+		
+		<!--多對多 -->
+		<mapping class="tw.edenHsieh.model.Game"/>
+		<mapping class="tw.edenHsieh.model.Role"/>
+		
+    	
+    </session-factory>
+</hibernate-configuration>
